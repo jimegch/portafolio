@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio de Jimena Guevara Chaves, estudiante de Informática Empresarial.">
+  <title>Jimena Guevara | Portafolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fff9fb;
+      --white: #ffffff;
+      --text: #392b42;
+      --muted: #76677c;
+      --accent: #a85c89;
+      --accent-dark: #87466c;
+      --line: #efdce8;
+      --soft: #fff3f8;
+      --lavender: #eee5fa;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button { font: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,249,251,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font: 800 25px Manrope, sans-serif;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .links {
+      display: flex;
+      gap: 23px;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .links a:hover { color: var(--accent); }
+
+    .hero {
+      padding: 95px 0;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: Manrope, sans-serif;
+      line-height: 1.3;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      letter-spacing: -3px;
+      margin: 18px 0;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    p { color: var(--muted); }
+
+    .hero p { font-size: 18px; }
+
+    .actions, .contactlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn.alt {
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--accent-dark);
+    }
+
+    .heroart {
+      aspect-ratio: 1;
+      border-radius: 35px;
+      background: linear-gradient(145deg, #f8dce9, #e7dffb);
+      border: 1px solid #e7c8dc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .monogram {
+      font: 800 100px Manrope, sans-serif;
+      color: #985078;
+    }
+
+    .tagfloat {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #8f517b;
+      background: white;
+      padding: 9px 14px;
+      border-radius: 20px;
+    }
+
+    .section { padding: 70px 0; }
+
+    .section:nth-of-type(even) {
+      background: var(--soft);
+    }
+
+    .sectionhead { margin-bottom: 30px; }
+
+    .sectionhead h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 7px 0;
+      letter-spacing: -1px;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card, .skillcard {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 38px rgba(127,66,109,.05);
+    }
+
+    .card h3 { margin-top: 0; }
+
+    .timeline {
+      border-left: 2px solid #eacadd;
+      padding-left: 22px;
+    }
+
+    .timeline article { margin-bottom: 22px; }
+
+    .timeline h3 {
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .timeline p { margin: 4px 0; }
+
+    .meta {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* PROYECTOS */
+
+    .projectstack {
+      display: grid;
+      gap: 35px;
+    }
+
+    .project-new {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1.05fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .gallery {
+      min-width: 0;
+      background: #fdf2f8;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+    }
+
+    .gallery-top, .gallery-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gallery-top {
+      color: #925378;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    .slides {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg,#f2d9e8,#e9e3fa);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide.active { display: flex; }
+
+    .slide img, .slide video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #271e2b;
+    }
+
+    .empty-media {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      gap: 10px;
+      color: #8c5b80;
+    }
+
+    .media-icon { font-size: 42px; }
+
+    .empty-media small { color: #957f94; }
+
+    .gallery-controls { margin-top: 16px; }
+
+    .arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #e7cbdd;
+      color: #985c84;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .arrow:hover { background: #f4dce9; }
+
+    .dots {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .dotnav {
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 50%;
+      background: #ddbbd1;
+      cursor: pointer;
+    }
+
+    .dotnav.active {
+      width: 25px;
+      border-radius: 10px;
+      background: var(--accent);
+    }
+
+    /* INFORMACIÓN Y BOTÓN DESPLEGABLE */
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .project-info > h3 {
+      font-size: 30px;
+      margin: 0;
+    }
+
+    .project-detail {
+      background: #fff8fc;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 21px;
+    }
+
+    .project-detail h4 {
+      color: #965377;
+      font-size: 16px;
+      margin: 0 0 10px;
+    }
+
+    .project-detail h4:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .project-detail p { margin: 0; }
+
+    .project-detail ul {
+      padding-left: 20px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .project-detail li { margin-bottom: 8px; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      background: #f9eaf2;
+      color: #875070;
+      border: 1px solid #eed6e5;
+      padding: 7px 12px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .detail-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f7e5f0;
+      border: 1px solid #eacddd;
+      border-radius: 14px;
+      padding: 15px 18px;
+      color: #87466c;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .detail-toggle:hover { background: #f2d8e7; }
+
+    .detail-toggle .chevron {
+      transition: transform .2s;
+    }
+
+    .detail-toggle[aria-expanded="true"] .chevron {
+      transform: rotate(180deg);
+    }
+
+    .participation {
+      display: none;
+    }
+
+    .participation.open {
+      display: block;
+    }
+
+    /* HABILIDADES */
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .skillcard h3 { font-size: 17px; }
+
+    .contact {
+      background: linear-gradient(135deg,#fff,#f8e9f3);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 45px;
+    }
+
+    .contact h2 {
+      font-size: 35px;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #927e91;
+      font-size: 13px;
+      padding: 35px 0;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    @media(max-width:800px) {
+      .hero, .project-new, .grid2 {
+        grid-template-columns: 1fr;
+      }
+
+      .skills { grid-template-columns: 1fr; }
+
+      .hero { padding: 60px 0; }
+
+      .heroart {
+        width: min(300px,100%);
+        margin: auto;
+      }
+
+      .section { padding: 45px 0; }
+    }
+
+    @media(max-width:500px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 0;
+      }
+
+      .links { gap: 12px; }
+
+      .card { padding: 18px; }
+
+      .gallery { padding: 11px; }
+
+      .hero h1 { letter-spacing: -2px; }
+
+      .contact { padding: 25px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#inicio" class="logo">Portafolio<span>.</span></a>
+    <div class="links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- INICIO -->
+
+  <section class="wrap hero" id="inicio">
+    <div>
+      <div class="eyebrow">Portafolio profesional · Costa Rica</div>
+      <h1>Hola, soy <em>Jimena Guevara</em></h1>
+      <p>
+        Estudiante de cuarto año de Informática Empresarial
+        en la Universidad de Costa Rica. Me interesan las
+        bases de datos, el análisis de datos, la gestión
+        de proyectos y el desarrollo frontend.
+      </p>
+      <div class="actions">
+        <a class="btn" href="#proyectos">Conocer mi trabajo ↗</a>
+        <a class="btn alt" href="Jimena_Guevara_CV.pdf" download>
+          Descargar CV ↓
+        </a>
+      </div>
+    </div>
+
+    
+  </section>
+
+  <!-- SOBRE MÍ -->
+
+  <section class="section" id="sobre-mi">
+    <div class="wrap">
+      <div class="sectionhead">
+        <div class="eyebrow">01 / Perfil</div>
+        <h2>Sobre mí</h2>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Un poco sobre mí</h3>
+          <p>
+            Soy estudiante de cuarto año de Informática Empresarial.
+            Me considero una persona responsable, comprometida
+            y con disposición para aprender. Busco una oportunidad
+            de pasantía o práctica profesional para aplicar mis
+            conocimientos y adquirir experiencia en tecnología.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Formación académica</h3>
+          <div class="timeline">
+            <article>
+              <h3>Informática Empresarial</h3>
+              <p>Universidad de Costa Rica</p>
+              <div class="meta">Marzo 2023 – Actualidad</div>
+            </article>
+            <article>
+              <h3>Bachillerato en Educación Media</h3>
+              <p>Liceo Enrique Guier Sáenz</p>
+              <div class="meta">Graduación: 2021</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+
+  <section class="section" id="proyectos">
+    <div class="wrap">
+      <div class="sectionhead">
+        <div class="eyebrow">02 / Mis proyectos ✦</div>
+        <h2>Proyectos que cuentan mi historia</h2>
+        <p>
+          Conoce algunos de los proyectos académicos
+          en los que he participado.
+        </p>
+      </div>
+
+      <div class="projectstack">
+
+        <!-- PROYECTO 1: TAPANTIIA -->
+
+        <article class="project-new card" id="proyecto-1">
+
+          <div class="gallery" data-project="1">
+            <div class="gallery-top">
+              <span>✦ Galería de TapantiIA</span>
+              <span class="counter">1 / 3</span>
+            </div>
+
+            <div class="slides">
+              <div class="slide active">
+                <div class="empty-media">
+                  <span class="media-icon">▶</span>
+                  <strong>Video del proyecto</strong>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="empty-media">
+                  <span class="media-icon">▧</span>
+                  <strong>Imagen 1</strong>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="empty-media">
+                  <span class="media-icon">▧</span>
+                  <strong>Imagen 2</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-controls">
+              <button class="arrow prev" type="button" aria-label="Anterior">←</button>
+              <div class="dots">
+                <button class="dotnav active" aria-label="Video"></button>
+                <button class="dotnav" aria-label="Imagen 1"></button>
+                <button class="dotnav" aria-label="Imagen 2"></button>
+              </div>
+              <button class="arrow next" type="button" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="meta">Ingeniería de Software · Marzo – Julio 2026</div>
+            <h3>TapantiIA</h3>
+
+            <div class="project-detail">
+              <h4>Descripción del proyecto</h4>
+              <p>
+                Proyecto académico de Ingeniería de Software
+                centrado en el análisis, documentación y
+                desarrollo de una plataforma web.
+              </p>
+
+              <h4>Herramientas y tecnologías</h4>
+              <div class="chips">
+                <span class="chip">React</span>
+                <span class="chip">Java</span>
+                <span class="chip">ClickUp</span>
+              </div>
+            </div>
+
+            <button class="detail-toggle" type="button"
+                    aria-expanded="false" aria-controls="participacion-1">
+              Mi participación y aprendizajes
+              <span class="chevron">⌄</span>
+            </button>
+
+            <div class="project-detail participation" id="participacion-1">
+              <h4>Mi participación</h4>
+              <ul>
+                <li>Análisis y documentación de requerimientos funcionales y no funcionales.</li>
+                <li>Elaboración de documentos de decisiones arquitectónicas (ADR).</li>
+                <li>Identificación de actores y casos de uso.</li>
+                <li>Desarrollo de interfaces web utilizando React.</li>
+                <li>Coordinación de actividades del equipo frontend.</li>
+                <li>Colaboración en la integración de funcionalidades.</li>
+              </ul>
+
+              <h4>Aprendizajes</h4>
+              <p>
+                Fortalecí mis conocimientos en desarrollo frontend,
+                documentación de software, organización de tareas
+                y trabajo colaborativo durante el desarrollo
+                de una plataforma web.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROYECTO 2: DEMOCRAXSSY -->
+
+        <article class="project-new card" id="proyecto-2">
+
+          <div class="gallery" data-project="2">
+            <div class="gallery-top">
+              <span>✦ Galería de DemocraXSSy</span>
+              <span class="counter">1 / 3</span>
+            </div>
+
+            <div class="slides">
+              <div class="slide active">
+                <div class="empty-media">
+                  <span class="media-icon">▶</span>
+                  <strong>Video del proyecto</strong>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="empty-media">
+                  <span class="media-icon">▧</span>
+                  <strong>Imagen 1</strong>
+                </div>
+              </div>
+
+              <div class="slide">
+                <div class="empty-media">
+                  <span class="media-icon">▧</span>
+                  <strong>Imagen 2</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-controls">
+              <button class="arrow prev" type="button" aria-label="Anterior">←</button>
+              <div class="dots">
+                <button class="dotnav active" aria-label="Video"></button>
+                <button class="dotnav" aria-label="Imagen 1"></button>
+                <button class="dotnav" aria-label="Imagen 2"></button>
+              </div>
+              <button class="arrow next" type="button" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="meta">Proyecto académico · Desarrollo web</div>
+            <h3>DemocraXSSy</h3>
+
+            <div class="project-detail">
+              <h4>Descripción del proyecto</h4>
+              <p>
+                Juego de cartas multijugador desarrollado como
+                aplicación web, inspirado en la sátira política
+                y el humor. Permite crear partidas, incorporar
+                jugadores y participar en diferentes rondas
+                hasta finalizar el juego.
+              </p>
+              <p style="margin-top:12px">
+                La aplicación cuenta con una interfaz que permite
+                conectarse a diferentes servidores y comunicarse
+                con un backend mediante APIs, utilizando
+                conexiones HTTP o HTTPS.
+              </p>
+
+              <h4>Herramientas y tecnologías</h4>
+              <div class="chips">
+                <span class="chip">React</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">OCI</span>
+              </div>
+            </div>
+
+            <button class="detail-toggle" type="button"
+                    aria-expanded="false" aria-controls="participacion-2">
+              Mi participación y aprendizajes
+              <span class="chevron">⌄</span>
+            </button>
+
+            <div class="project-detail participation" id="participacion-2">
+              <h4>Mi participación</h4>
+              <ul>
+                <li>Desarrollo de componentes de la interfaz utilizando React.</li>
+                <li>Implementación de funcionalidades para las distintas fases del juego.</li>
+                <li>Integración de la interfaz con las APIs del servidor.</li>
+                <li>Implementación de validaciones y manejo de respuestas del backend.</li>
+                <li>Participación en el desarrollo de la lógica del servidor.</li>
+              </ul>
+
+              <h4>Aprendizajes</h4>
+              <p>
+                Fortalecí mis conocimientos sobre la comunicación
+                entre frontend y backend, el consumo de APIs,
+                la validación de datos y la organización
+                de componentes en React. También adquirí
+                experiencia resolviendo problemas de integración
+                y funcionamiento de aplicaciones multijugador.
+              </p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+
+  <section class="section" id="habilidades">
+    <div class="wrap">
+      <div class="sectionhead">
+        <div class="eyebrow">03 / Conocimientos</div>
+        <h2>Habilidades y herramientas</h2>
+      </div>
+
+      <div class="skills">
+        <div class="skillcard">
+          <h3>Conocimientos técnicos</h3>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Java</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">React</span>
+            <span class="chip">Excel</span>
+            <span class="chip">Canva</span>
+          </div>
+        </div>
+
+        <div class="skillcard">
+          <h3>Herramientas</h3>
+          <div class="chips">
+            <span class="chip">Google Colab</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">SQL Server</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">Jira</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Microsoft Office</span>
+          </div>
+        </div>
+
+        <div class="skillcard">
+          <h3>Habilidades interpersonales</h3>
+          <div class="chips">
+            <span class="chip">Trabajo en equipo</span>
+            <span class="chip">Aprendizaje rápido</span>
+            <span class="chip">Adaptabilidad</span>
+            <span class="chip">Atención al detalle</span>
+            <span class="chip">Liderazgo</span>
+            <span class="chip">Responsabilidad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS E IDIOMAS -->
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sectionhead">
+        <div class="eyebrow">04 / Aprendizaje</div>
+        <h2>Cursos e idiomas</h2>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Cursos y certificaciones</h3>
+          <div class="timeline">
+            <article>
+              <h3>Fundamentos de Base de Datos y SQL</h3>
+              <p>Rocket Girls Academy · 2026</p>
+            </article>
+            <article>
+              <h3>Análisis de Datos con Python usando Google Colab</h3>
+              <p>Rocket Girls Academy · 2026</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Idiomas</h3>
+          <p><strong>Español:</strong> Nativo</p>
+          <p><strong>Inglés:</strong> B1</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+
+  <section class="section" id="contacto">
+    <div class="wrap">
+      <div class="contact">
+        <div class="eyebrow">05 / Contacto</div>
+        <h2>¡Conectemos!</h2>
+        <p>
+          Actualmente busco oportunidades de pasantía o práctica
+          profesional en el área de tecnología. Me gustaría
+          aportar mis conocimientos, aprender de un equipo
+          y seguir creciendo profesionalmente.
+        </p>
+        <p>Cartago, Costa Rica</p>
+
+        <div class="contactlinks">
+          <a class="btn" href="mailto:jimena.guevara2304@gmail.com">
+            Enviar correo ↗
+          </a>
+          <a class="btn alt"
+             href="https://www.linkedin.com/in/jimena-guevara23"
+             target="_blank" rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+          <a class="btn alt"
+             href="https://github.com/jimegch"
+             target="_blank" rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+          <a class="btn alt" href="Jimena_Guevara_CV.pdf" download>
+            Descargar CV ↓
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  © 2026 Jimena Guevara Chaves · Portafolio profesional
+</footer>
+
+<script>
+
+
+
+  const archivos = {
+    1: [
+      "media/proyecto1video.mp4",
+      "media/proyecto1imagen1.jpeg",
+      "media/proyecto1imagen2.jpeg"
+    ],
+    2: [
+      "media/proyecto2video.mp4",
+      "media/proyecto2imagen1.jpeg",
+      "media/proyecto2imagen2.jpeg"
+    ]
+  };
+
+
+
+  document.querySelectorAll('.gallery').forEach(gallery => {
+    const project = gallery.dataset.project;
+    const slides = [...gallery.querySelectorAll('.slide')];
+    const dots = [...gallery.querySelectorAll('.dotnav')];
+    const counter = gallery.querySelector('.counter');
+
+    let current = 0;
+
+    function go(index) {
+      slides[current].querySelector('video')?.pause();
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+
+      current = (index + slides.length) % slides.length;
+
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      counter.textContent = `${current + 1} / ${slides.length}`;
+    }
+
+    gallery.querySelector('.prev').addEventListener(
+      'click', () => go(current - 1)
+    );
+
+    gallery.querySelector('.next').addEventListener(
+      'click', () => go(current + 1)
+    );
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => go(i));
+    });
+
+   
+archivos[project].forEach((path, slot) => {
+  const slide = slides[slot];
+
+  if (slot === 0) {
+    // Cargar video
+    const video = document.createElement('video');
+
+    video.src = path;
+    video.controls = true;
+    video.preload = 'metadata';
+    video.playsInline = true;
+
+    video.addEventListener('loadedmetadata', () => {
+      slide.replaceChildren(video);
+    });
+
+    video.addEventListener('error', () => {
+      console.error('Error al cargar video:', path);
+    });
+
+  } else {
+    // Cargar imagen
+    const imagen = document.createElement('img');
+
+    imagen.alt = `Imagen ${slot} del proyecto ${project}`;
+    imagen.loading = 'eager';
+
+    imagen.addEventListener('load', () => {
+      slide.replaceChildren(imagen);
+    });
+
+    imagen.addEventListener('error', () => {
+      console.error('Error al cargar imagen:', path);
+    });
+
+    imagen.src = path;
+  }
+});
+
+  });
+
+
+
+  document.querySelectorAll('.detail-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const section = document.getElementById(
+        button.getAttribute('aria-controls')
+      );
+
+      const expanded =
+        button.getAttribute('aria-expanded') === 'true';
+
+      button.setAttribute('aria-expanded', String(!expanded));
+      section.classList.toggle('open', !expanded);
+    });
+  });
+</script>
+
+</body>
+</html>
